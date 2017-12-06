@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activity.Donate" >
+
+  <TextView
+      android:id="@+id/donateTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentTop="true"
+      android:text="@string/donateTitle"
+      android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  <TextView
+      android:id="@+id/donateSubtitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentRight="true"
+      android:layout_below="@+id/donateTitle"
+      android:text="@string/donateSubtitle"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <RadioGroup
+      android:id="@+id/paymentMethod"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/progressBar"
+      android:layout_alignLeft="@+id/donateSubtitle"
+      android:layout_below="@+id/donateSubtitle"
+      android:layout_marginLeft="14dp"
+      android:layout_marginTop="26dp"
+      android:layout_toLeftOf="@+id/amountPicker" >
+
+    <RadioButton
+        android:id="@+id/PayPal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/PayPal" />
+
+    <RadioButton
+        android:id="@+id/Direct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Direct" />
+
+  </RadioGroup>
+
+  <ProgressBar
+      android:id="@+id/progressBar"
+      style="?android:attr/progressBarStyleHorizontal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/donateButton"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentRight="true"
+      android:layout_marginBottom="67dp" />
+
+  <NumberPicker
+      android:id="@+id/amountPicker"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignRight="@+id/donateSubtitle"
+      android:layout_alignTop="@+id/paymentMethod" />
+
+  <EditText
+      android:id="@+id/amountText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/donateButton"
+      android:layout_alignParentRight="true"
+      android:layout_marginBottom="20dp"
+      android:ems="10"
+      android:inputType="number" >
+    <requestFocus />
+  </EditText>
+
+  <TextView
+      android:id="@+id/amountLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/amountText"
+      android:layout_alignLeft="@+id/paymentMethod"
+      android:labelFor="@id/amountText"
+      android:text="@string/amount"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <Button
+      android:id="@+id/donateButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentLeft="true"
+      android:layout_marginBottom="15dp"
+      android:onClick="donateButtonPressed"
+      android:text="@string/donateButton" />
+
+  <TextView
+      android:id="@+id/amountTotal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/donateButton"
+      android:layout_alignRight="@+id/amountText"
+      android:text="@string/initialAmount"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <TextView
+      android:id="@+id/totalLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@+id/amountTotal"
+      android:layout_alignBottom="@+id/amountTotal"
+      android:layout_toLeftOf="@+id/amountPicker"
+      android:text="@string/amountSoFarLabel"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <Spinner
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/progressBar"
+      android:layout_centerHorizontal="true"
+      android:id="@+id/spinner"/>
+
+</RelativeLayout>
