@@ -24,8 +24,9 @@ public class DonationApp extends Application
 {
   public DonationService donationService;
   public boolean         donationServiceAvailable = false;
- // public String          service_url  = "http://10.0.2.2:4000";   // Standard Emulator IP Address
-  public String          service_url  = "http://10.8.89.59:4000";   // Standard Emulator IP Address
+  public String          service_url  = "http://10.0.2.2:4000";   // Standard Emulator IP Address : use this one when app is secured
+  //public String          service_url  = "http://10.8.89.59:4000";   // Standard Emulator IP Address
+ // public String          service_url  = "http://10.0.2.2:9000";   // Standard Emulator IP Address
 
   public final int       target       = 10000;
   public int             totalDonated = 0;
