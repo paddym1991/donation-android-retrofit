@@ -13,8 +13,10 @@ import app.donation.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
+/**
+ * Signup has minor changes to use the open api proxy
+ */
 public class Signup extends AppCompatActivity implements Callback<User>
 {
   private DonationApp app;
@@ -37,28 +39,18 @@ public class Signup extends AppCompatActivity implements Callback<User>
     User user = new User(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString());
 
     DonationApp app = (DonationApp) getApplication();
-    //We send a new User details to the service here
-    Call<User> call = (Call<User>) app.donationService.createUser(user);
+    Call<User> call = (Call<User>) app.donationServiceOpen.createUser(user);
     call.enqueue(this);
   }
 
-  /**
-   * we deal with the responses here
-   * @param call
-   * @param response
-   */
   @Override
   public void onResponse(Call<User> call, Response<User> response)
   {
-    app.users.add(response.body());
+    Toast toast = Toast.makeText(this, "Signup Successful", Toast.LENGTH_LONG);
+    toast.show();
     startActivity(new Intent(this, Welcome.class));
   }
 
-  /**
-   * we deal with the responses here
-   * @param call
-   * @param t
-   */
   @Override
   public void onFailure(Call<User> call, Throwable t)
   {
